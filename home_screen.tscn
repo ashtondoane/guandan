@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://cahsqy241slw8"]
+
+[ext_resource type="PackedScene" uid="uid://clgoi3ssv45ts" path="res://Scenes/2Hearts.tscn" id="2_hb7nk"]
+[ext_resource type="Texture2D" uid="uid://co0pwoi00vfh1" path="res://Sprites/pixil-frame-0.png" id="3_5inap"]
+
+[sub_resource type="Gradient" id="Gradient_loqnf"]
+offsets = PackedFloat32Array(0, 0.100649, 0.719512)
+colors = PackedColorArray(1, 1, 1, 1, 0.927602, 0.927602, 0.927602, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tj1q4"]
+gradient = SubResource("Gradient_loqnf")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.505348, 0.489305)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(274, 20)
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(314, 287)
+scale = Vector2(10.9695, -6.01875)
+texture = ExtResource("3_5inap")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(313, 292)
+scale = Vector2(3.16, 3.16)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(19, 225)
+scale = Vector2(2.56, 2.56)
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+z_index = 1
+position = Vector2(-39.0625, 23.0469)
+scale = Vector2(10.1998, 10.6131)
+color = Color(0.763126, 0.463467, 0.174291, 1)
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
+shadow_filter_smooth = 3.8
+texture = SubResource("GradientTexture2D_tj1q4")
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="Card1" parent="Cards" instance=ExtResource("2_hb7nk")]
+position = Vector2(417, 545)
+rotation = -0.184364
+
+[node name="Card2" parent="Cards" instance=ExtResource("2_hb7nk")]
+position = Vector2(501, 533)
+rotation = -0.0755615
+
+[node name="Card3" parent="Cards" instance=ExtResource("2_hb7nk")]
+position = Vector2(568, 531)
+
+[node name="Card4" parent="Cards" instance=ExtResource("2_hb7nk")]
+position = Vector2(631, 535)
+rotation = 0.115149
+
+[node name="Card5" parent="Cards" instance=ExtResource("2_hb7nk")]
+position = Vector2(703, 547)
+rotation = 0.230938
+
+[node name="Card6" parent="Cards" instance=ExtResource("2_hb7nk")]
+position = Vector2(834, 317)
+rotation = -0.184364
+
+[node name="Card7" parent="Cards" instance=ExtResource("2_hb7nk")]
+position = Vector2(891, 322)
+rotation = 0.216421

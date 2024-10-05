@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://clgoi3ssv45ts"]
+
+[ext_resource type="Texture2D" uid="uid://nmtb1pll4g7l" path="res://Sprites/Card_Example.png" id="1_fdmva"]
+[ext_resource type="Script" path="res://Scenes/2_hearts.gd" id="1_i2itn"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lwuo5"]
+cull_mode = 2
+polygon = PackedVector2Array(-26.1698, -38.0669, -24.1567, -38.0669, -24.1567, -40.3062, 20.5332, -40.3062, 20.5332, -38.0669, 22.1437, -38.0669, 22.1437, -36.2009, 24.1567, -36.2009, 24.1567, 37.6937, 24.1567, 38.4402, 22.1437, 38.4402, 22.1437, 40.3062, 20.1306, 40.3062, 20.1306, 42.1722, -24.1567, 42.1722, -24.1567, 40.3062, -26.1698, 40.3062, -26.1698, 38.0669, -28.1828, 38.0669, -28.1828, -36.2009, -26.1698, -36.2009)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riktl"]
+size = Vector2(51.1318, 77.9999)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_i2itn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(2.48378, 2.67949)
+texture = ExtResource("1_fdmva")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2D2"]
+visible = false
+z_index = -1
+occluder = SubResource("OccluderPolygon2D_lwuo5")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D"]
+visible = false
+position = Vector2(-1.81176, 0.933014)
+shape = SubResource("RectangleShape2D_riktl")
+
+[connection signal="input_event" from="Sprite2D2/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Sprite2D2/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D2/Area2D" to="." method="_on_area_2d_mouse_exited"]
